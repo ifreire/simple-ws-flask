@@ -6,7 +6,7 @@
 5. Access the project path;
 6. Run the command $ virtualenv -p $(which python) . # don't forget the DOT
 7. Run the command $ source bin/activate
-8. Run the command $ pip install -r req
+8. Run the command $ pip install -r requirements.txt
 9. Finally execute $ python app.py
 
 # simple-ws-flask
