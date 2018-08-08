@@ -9,6 +9,8 @@
 8. Run the command $ pip install -r requirements.txt
 9. Finally execute $ python app.py
 
+obs.: I'm using Slackware Linux.
+
 # simple-ws-flask
 - https://wsflasktest.herokuapp.com/
 - https://wsflasktest.herokuapp.com/posts
