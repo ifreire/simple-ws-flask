@@ -14,3 +14,6 @@
 - https://wsflasktest.herokuapp.com/posts
 - https://wsflasktest.herokuapp.com/posts/1
 
+# JSProject
+- Client to this project.
+- https://jsclient4wsflasktest.herokuapp.com/
