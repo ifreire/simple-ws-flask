@@ -10,10 +10,16 @@ app = Flask(__name__)
 cors = CORS(app, resources = {r"/posts/*": {"origins":"*"}})
 
 @app.route("/")
+def index():
+    return posts_()
+
 @app.route("/posts")
+def posts():
+    return posts_()
+
 @app.route("/posts/")
 @cross_origin(origin = '*', headers = _headers)
-def index():
+def posts_():
     return jsonify([post.to_dict() for post in Post.select()])
 
 @app.route('/posts/<int:id_post>')
@@ -63,9 +69,6 @@ def del_post(id_post):
         return jsonify({'status': 200, 'mensagem': 'Postagem excluída com sucesso'})
     except Post.DoesNotExist:
         abort(404)
-
-#def _abort(error_cod):
-#    abort(error_cod)
 
 @app.errorhandler(404)
 def not_found(error):
