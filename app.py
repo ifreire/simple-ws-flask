@@ -40,7 +40,8 @@ def new_post():
                 expireDate = data_from_client['expireDate'])
     post.save()
     
-    return jsonify({'status': 200, 'mensagem': 'Postagem salva com sucesso!'})
+    #return jsonify({'status': 200, 'mensagem': 'Postagem salva com sucesso!'})
+    return jsonify(200, 'Postagem salva com sucesso!')
 
 @app.route('/posts/<int:id_post>', methods = ['PUT', 'PATCH'])
 @cross_origin(origin = '*', headers = _headers)
@@ -58,7 +59,8 @@ def edit_post(id_post):
     post_from_db.expireDate = data_from_client['expireDate']
     post_from_db.save()
 
-    return jsonify({'status': 200, 'mensagem': 'Postagem salva com sucesso'})
+    #return jsonify({'status': 200, 'mensagem': 'Postagem salva com sucesso!'})
+    return _jsonify(200, 'Postagem salva com sucesso!')
 
 @app.route('/posts/<int:id_post>', methods = ['DELETE'])
 @cross_origin(origin = '*', headers = _headers)
@@ -66,13 +68,17 @@ def del_post(id_post):
     try:
         post_from_db = Post.get(id = id_post)
         post_from_db.delete_instance()
-        return jsonify({'status': 200, 'mensagem': 'Postagem excluída com sucesso'})
+        #return jsonify({'status': 200, 'mensagem': 'Postagem excluída com sucesso!'})
+        return _jsonify(200, 'Postagem excluída com sucesso!')
     except Post.DoesNotExist:
         abort(404)
 
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
+
+def _jsonify(id_sts, msg):
+    return jsonify({'status': id_sts, 'mensagem': msg})
 
 if __name__ == '__main__':
     app.run(debug = True)
