@@ -22,7 +22,7 @@ def post(id_post):
         post = Post.get(id = id_post)
         return jsonify(post.to_dict())
     except Post.DoesNorExist:
-        _abort(404)
+        abort(404)
 
 @app.route('/posts/new_post', methods = ['POST'])
 @cross_origin(origin = '*', headers = _headers)
@@ -44,7 +44,7 @@ def edit_post(id_post):
     try:
         post_from_db = Post.get(id = id_post)
     except Post.DoesNotExist as e:
-        _abort(404)
+        abort(404)
 
     post_from_db.title = data_from_client['title']
     post_from_db.content = data_from_client['content']
@@ -62,10 +62,10 @@ def del_post(id_post):
         post_from_db.delete_instance()
         return jsonify({'status': 200, 'mensagem': 'Postagem excluída com sucesso'})
     except Post.DoesNotExist:
-        _abort(404)
+        abort(404)
 
-def _abort(error_cod):
-    abort(error_cod)
+#def _abort(error_cod):
+#    abort(error_cod)
 
 @app.errorhandler(404)
 def not_found(error):
