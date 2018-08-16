@@ -22,7 +22,7 @@ def post(id_post):
         post = Post.get(id = id_post)
         return jsonify(post.to_dict())
     except Post.DoesNorExist:
-        not_found(404)
+        abort(404)
 
 @app.route('/posts/new_post', methods = ['POST'])
 @cross_origin(origin = '*', headers = _headers)
