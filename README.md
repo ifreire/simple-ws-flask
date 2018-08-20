@@ -24,3 +24,4 @@ Using Windows:
 # JSProject
 - Javascript client to this project.
 - https://jsclient4wsflasktest.herokuapp.com/
+- https://github.com/ifreire/JSProject
