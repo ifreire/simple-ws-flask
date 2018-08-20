@@ -1,4 +1,5 @@
 # Instructions:
+Using Linux:
 1. Install pyenv (howto here: https://github.com/pyenv/pyenv#installation);
 2. Install python version 3.6.5 using pyenv (howto: $ pyenv install -help);
 3. Install virtualenv (howto here: https://virtualenv.pypa.io/en/latest/installation/);
@@ -9,7 +10,11 @@
 8. Run the command $ pip install -r requirements.txt
 9. Finally execute $ python app.py
 
-obs.: I'm using Slackware Linux.
+Using Windows:
+1. Clone this repository;
+2. Access the project path;
+3. Run the command $ pip install -r requirements.txt
+4. Finally execute $ python app.py
 
 # simple-ws-flask
 - https://wsflasktest.herokuapp.com/
