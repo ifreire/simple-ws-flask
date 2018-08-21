@@ -31,6 +31,23 @@ VALUES  ('New test', 'Adding another post into sqlite3.', '2018-07-04', NULL);
 
 conn.commit()
 
+cursor.execute("""
+CREATE TABLE test
+(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    description VARCHAR(20) NOT NULL
+);
+""")
+
+conn.commit()
+
+cursor.execute("""
+INSERT INTO test (description)
+VALUES  ('1st TEST');
+""")
+
+conn.commit()
+
 print('OK.')
 
 conn.close()
